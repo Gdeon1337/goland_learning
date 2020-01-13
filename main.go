@@ -22,20 +22,26 @@ func main() {
 	router.Use(app.JwtAuthentication)
 	go task()
 
-	router.HandleFunc("/api/user/new",
+	router.HandleFunc("/api/user",
 		app.CreateUser).Methods("POST")
 
 	router.HandleFunc("/api/user/login",
 		app.Authenticate).Methods("POST")
 
-	router.HandleFunc("/api/currency/new",
+	router.HandleFunc("/api/currency",
 		app.CreateCurrencies).Methods("POST")
 
-	router.HandleFunc("/api/currency/update",
-		app.UpdateCurrencies).Methods("POST")
+	router.HandleFunc("/api/currency",
+		app.UpdateCurrencies).Methods("PUT")
+
+	router.HandleFunc("/api/currency",
+		app.DeleteCurrencies).Methods("DELETE")
 
 	router.HandleFunc("/api/currency/convert",
-		app.ConvertCurrency).Methods("POST")
+		app.ConvertCurrency).Methods("GET")
+
+	router.HandleFunc("/api/currency",
+		app.GetCurrencies).Methods("GET")
 
 	port := os.Getenv("PORT")
 	if port == "" {

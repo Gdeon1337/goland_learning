@@ -52,6 +52,14 @@ func (currency *Currency) Create() map[string] interface{} {
 	return response
 }
 
+func GetAllCurrencies(limit, offset int) map[string] interface{} {
+	currencies := make([]Currency, 4)
+	GetDB().Limit(limit).Limit(offset).Find(&currencies)
+	response := u.Message(true, "get all currencies")
+	response["currencies"] = currencies
+	return response
+}
+
 
 
 func (currency *Currency) Update() map[string] interface{} {
@@ -68,6 +76,23 @@ func (currency *Currency) Update() map[string] interface{} {
 	response["currency"] = temp
 	return response
 }
+
+
+func (currency *Currency) Delete() map[string] interface{} {
+	temp := &Currency{}
+	err := GetDB().Table("currencies").Where("id = ?", int(currency.ID)).First(temp).Error
+	if err != nil {
+		if err == gorm.ErrRecordNotFound {
+			return u.Message(false, "Currency not found")
+		}
+		return u.Message(false, "Connection error. Please retry")
+	}
+	GetDB().Delete(&temp)
+	response := u.Message(true, "currencies has been deleted")
+	response["currency"] = temp
+	return response
+}
+
 
 func (currencyConvert *CurrencyConvert) Convert() map[string] interface{} {
 	baseCurrency := &Currency{}

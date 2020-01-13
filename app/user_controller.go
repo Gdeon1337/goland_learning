@@ -33,7 +33,7 @@ var JwtAuthentication = func(next http.Handler) http.Handler {
 			response = u.Message(false, "Missing auth token")
 			w.WriteHeader(http.StatusForbidden)
 			w.Header().Add("Content-Type", "application/json")
-			u.Respond(w, response)
+			u.Respond(w, response, 403)
 			return
 		}
 
@@ -42,7 +42,7 @@ var JwtAuthentication = func(next http.Handler) http.Handler {
 			response = u.Message(false, "Invalid/Malformed auth token")
 			w.WriteHeader(http.StatusForbidden)
 			w.Header().Add("Content-Type", "application/json")
-			u.Respond(w, response)
+			u.Respond(w, response, 403)
 			return
 		}
 
@@ -57,7 +57,7 @@ var JwtAuthentication = func(next http.Handler) http.Handler {
 			response = u.Message(false, "Malformed authentication token")
 			w.WriteHeader(http.StatusForbidden)
 			w.Header().Add("Content-Type", "application/json")
-			u.Respond(w, response)
+			u.Respond(w, response, 403)
 			return
 		}
 
@@ -65,7 +65,7 @@ var JwtAuthentication = func(next http.Handler) http.Handler {
 			response = u.Message(false, "Token is not valid.")
 			w.WriteHeader(http.StatusForbidden)
 			w.Header().Add("Content-Type", "application/json")
-			u.Respond(w, response)
+			u.Respond(w, response, 403)
 			return
 		}
 		ctx := context.WithValue(r.Context(), "user", tk.UserId)
@@ -79,12 +79,12 @@ var CreateUser = func(w http.ResponseWriter, r *http.Request) {
 	user := &models.User{}
 	err := json.NewDecoder(r.Body).Decode(user)
 	if err != nil {
-		u.Respond(w, u.Message(false, "Invalid request"))
+		u.Respond(w, u.Message(false, "Invalid request"), 415)
 		return
 	}
 
 	resp := user.Create()
-	u.Respond(w, resp)
+	u.Respond(w, resp, 200)
 }
 
 
@@ -93,12 +93,12 @@ var Authenticate = func(w http.ResponseWriter, r *http.Request) {
 	user := &models.User{}
 	err := json.NewDecoder(r.Body).Decode(user)
 	if err != nil {
-		u.Respond(w, u.Message(false, "Invalid request"))
+		u.Respond(w, u.Message(false, "Invalid request"), 415)
 		return
 	}
 
 	resp := models.Login(user.Login, user.Password)
-	u.Respond(w, resp)
+	u.Respond(w, resp, 200)
 }
 
 

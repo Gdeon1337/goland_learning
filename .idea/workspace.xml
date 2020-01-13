@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ef8c6ce9-ce05-4658-9799-79ef5c786458" name="Default Changelist" comment="" />
+    <list default="true" id="ef8c6ce9-ce05-4658-9799-79ef5c786458" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/currency_controller.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/currency_controller.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/user_controller.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/user_controller.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/currencies.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/currencies.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/util.go" beforeDir="false" afterPath="$PROJECT_DIR$/utils/util.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,10 +36,14 @@
     </option>
   </component>
   <component name="GOROOT" path="$USER_HOME$/sdk/go1.14beta1" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="false" />
   </component>
   <component name="ProjectId" id="1VEm3ixTq291ngkF2PsqaYcMHhL" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -125,50 +136,54 @@
       <screen x="67" y="28" width="1853" height="1052" />
     </state>
     <state x="676" y="277" width="624" height="560" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/67.28.1853.1052@67.28.1853.1052" timestamp="1577282721114" />
+    <state x="553" y="139" width="871" height="836" key="CommitChangelistDialog2" timestamp="1578906554653">
+      <screen x="67" y="28" width="1853" height="1052" />
+    </state>
+    <state x="553" y="139" width="871" height="836" key="CommitChangelistDialog2/67.28.1853.1052@67.28.1853.1052" timestamp="1578906554653" />
     <state x="776" y="311" width="424" height="491" key="FileChooserDialogImpl" timestamp="1577272367310">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="776" y="311" width="424" height="491" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1577272367310" />
-    <state width="1801" height="198" key="GridCell.Tab.0.bottom" timestamp="1578581116960">
+    <state width="1801" height="263" key="GridCell.Tab.0.bottom" timestamp="1578906369744">
       <screen x="67" y="28" width="1853" height="1052" />
     </state>
     <state width="1807" height="275" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1577192445429" />
-    <state width="1801" height="198" key="GridCell.Tab.0.bottom/67.28.1853.1052@67.28.1853.1052" timestamp="1578581116960" />
-    <state width="1801" height="198" key="GridCell.Tab.0.center" timestamp="1578581116959">
+    <state width="1801" height="263" key="GridCell.Tab.0.bottom/67.28.1853.1052@67.28.1853.1052" timestamp="1578906369744" />
+    <state width="1801" height="263" key="GridCell.Tab.0.center" timestamp="1578906369743">
       <screen x="67" y="28" width="1853" height="1052" />
     </state>
     <state width="1807" height="275" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1577192445428" />
-    <state width="1801" height="198" key="GridCell.Tab.0.center/67.28.1853.1052@67.28.1853.1052" timestamp="1578581116959" />
-    <state width="1801" height="198" key="GridCell.Tab.0.left" timestamp="1578581116959">
+    <state width="1801" height="263" key="GridCell.Tab.0.center/67.28.1853.1052@67.28.1853.1052" timestamp="1578906369743" />
+    <state width="1801" height="263" key="GridCell.Tab.0.left" timestamp="1578906369743">
       <screen x="67" y="28" width="1853" height="1052" />
     </state>
     <state width="1807" height="275" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1577192445427" />
-    <state width="1801" height="198" key="GridCell.Tab.0.left/67.28.1853.1052@67.28.1853.1052" timestamp="1578581116959" />
-    <state width="1801" height="198" key="GridCell.Tab.0.right" timestamp="1578581116959">
+    <state width="1801" height="263" key="GridCell.Tab.0.left/67.28.1853.1052@67.28.1853.1052" timestamp="1578906369743" />
+    <state width="1801" height="263" key="GridCell.Tab.0.right" timestamp="1578906369743">
       <screen x="67" y="28" width="1853" height="1052" />
     </state>
     <state width="1807" height="275" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1577192445428" />
-    <state width="1801" height="198" key="GridCell.Tab.0.right/67.28.1853.1052@67.28.1853.1052" timestamp="1578581116959" />
-    <state width="1801" height="198" key="GridCell.Tab.1.bottom" timestamp="1578581116961">
+    <state width="1801" height="263" key="GridCell.Tab.0.right/67.28.1853.1052@67.28.1853.1052" timestamp="1578906369743" />
+    <state width="1801" height="337" key="GridCell.Tab.1.bottom" timestamp="1578904929030">
       <screen x="67" y="28" width="1853" height="1052" />
     </state>
     <state width="1807" height="340" key="GridCell.Tab.1.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1577187030295" />
-    <state width="1801" height="198" key="GridCell.Tab.1.bottom/67.28.1853.1052@67.28.1853.1052" timestamp="1578581116961" />
-    <state width="1801" height="198" key="GridCell.Tab.1.center" timestamp="1578581116960">
+    <state width="1801" height="337" key="GridCell.Tab.1.bottom/67.28.1853.1052@67.28.1853.1052" timestamp="1578904929030" />
+    <state width="1801" height="337" key="GridCell.Tab.1.center" timestamp="1578904929028">
       <screen x="67" y="28" width="1853" height="1052" />
     </state>
     <state width="1807" height="340" key="GridCell.Tab.1.center/67.27.1853.1053@67.27.1853.1053" timestamp="1577187030294" />
-    <state width="1801" height="198" key="GridCell.Tab.1.center/67.28.1853.1052@67.28.1853.1052" timestamp="1578581116960" />
-    <state width="1801" height="198" key="GridCell.Tab.1.left" timestamp="1578581116960">
+    <state width="1801" height="337" key="GridCell.Tab.1.center/67.28.1853.1052@67.28.1853.1052" timestamp="1578904929028" />
+    <state width="1801" height="337" key="GridCell.Tab.1.left" timestamp="1578904929027">
       <screen x="67" y="28" width="1853" height="1052" />
     </state>
     <state width="1807" height="340" key="GridCell.Tab.1.left/67.27.1853.1053@67.27.1853.1053" timestamp="1577187030294" />
-    <state width="1801" height="198" key="GridCell.Tab.1.left/67.28.1853.1052@67.28.1853.1052" timestamp="1578581116960" />
-    <state width="1801" height="198" key="GridCell.Tab.1.right" timestamp="1578581116960">
+    <state width="1801" height="337" key="GridCell.Tab.1.left/67.28.1853.1052@67.28.1853.1052" timestamp="1578904929027" />
+    <state width="1801" height="337" key="GridCell.Tab.1.right" timestamp="1578904929029">
       <screen x="67" y="28" width="1853" height="1052" />
     </state>
     <state width="1807" height="340" key="GridCell.Tab.1.right/67.27.1853.1053@67.27.1853.1053" timestamp="1577187030295" />
-    <state width="1801" height="198" key="GridCell.Tab.1.right/67.28.1853.1052@67.28.1853.1052" timestamp="1578581116960" />
+    <state width="1801" height="337" key="GridCell.Tab.1.right/67.28.1853.1052@67.28.1853.1052" timestamp="1578904929029" />
     <state x="482" y="188" width="1022" height="737" key="SettingsEditor" timestamp="1577279023966">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -186,9 +201,8 @@
   <component name="XDebuggerManager">
     <watches-manager>
       <configuration name="GoApplicationRunConfiguration">
-        <watch expression="resp.Body" language="go" />
-        <watch expression="rubleRate.Float()" language="go" />
-        <watch expression="r.URL.Query()[&quot;base_currency_id&quot;]" language="go" />
+        <watch expression="int(currency.ID)" language="go" />
+        <watch expression="GetDB().Table(&quot;currencies&quot;).Where(&quot;id = ?&quot;, 1).First(temp).Error" language="go" />
       </configuration>
     </watches-manager>
   </component>
