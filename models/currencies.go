@@ -5,26 +5,25 @@ import (
 	"github.com/jinzhu/gorm"
 )
 
-
 type Currency struct {
 	gorm.Model
 	Name      string  `json:"name"`
 	RubleRate float32 `json:"ruble_rate"`
-	Count float32 `json:"count" gorm:"-"`
+	Count     float32 `json:"count";gorm:"-"`
 }
 
 type CurrencyConvert struct {
-	BaseCurrencyId      int  `json:"base_currency_id"`
-	ConvertCurrencyId int `json:"convert_currency_id"`
-	Count float32 `json:"count"`
+	BaseCurrencyId    int     `json:"base_currency_id"`
+	ConvertCurrencyId int     `json:"convert_currency_id"`
+	Count             float32 `json:"count"`
 }
 
 type CurrencyConvertResponse struct {
-	BaseCurrency Currency `json:"base_currency"`
+	BaseCurrency    Currency `json:"base_currency"`
 	ConvertCurrency Currency `json:"convert_currency"`
 }
 
-func (currency *Currency) Validate() (map[string] interface{}, bool) {
+func (currency *Currency) Validate() (map[string]interface{}, bool) {
 
 	temp := &Currency{}
 
@@ -39,8 +38,7 @@ func (currency *Currency) Validate() (map[string] interface{}, bool) {
 	return u.Message(false, "Requirement passed"), true
 }
 
-
-func (currency *Currency) Create() map[string] interface{} {
+func (currency *Currency) Create() map[string]interface{} {
 
 	if resp, ok := currency.Validate(); !ok {
 		return resp
@@ -52,7 +50,7 @@ func (currency *Currency) Create() map[string] interface{} {
 	return response
 }
 
-func GetAllCurrencies(limit, offset int) map[string] interface{} {
+func GetAllCurrencies(limit, offset int) map[string]interface{} {
 	currencies := make([]Currency, 4)
 	GetDB().Limit(limit).Limit(offset).Find(&currencies)
 	response := u.Message(true, "get all currencies")
@@ -60,9 +58,7 @@ func GetAllCurrencies(limit, offset int) map[string] interface{} {
 	return response
 }
 
-
-
-func (currency *Currency) Update() map[string] interface{} {
+func (currency *Currency) Update() map[string]interface{} {
 	temp := &Currency{}
 	err := GetDB().Table("currencies").Where("name = ?", currency.Name).First(temp).Error
 	if err != nil {
@@ -77,8 +73,7 @@ func (currency *Currency) Update() map[string] interface{} {
 	return response
 }
 
-
-func (currency *Currency) Delete() map[string] interface{} {
+func (currency *Currency) Delete() map[string]interface{} {
 	temp := &Currency{}
 	err := GetDB().Table("currencies").Where("id = ?", int(currency.ID)).First(temp).Error
 	if err != nil {
@@ -93,8 +88,7 @@ func (currency *Currency) Delete() map[string] interface{} {
 	return response
 }
 
-
-func (currencyConvert *CurrencyConvert) Convert() map[string] interface{} {
+func (currencyConvert *CurrencyConvert) Convert() map[string]interface{} {
 	baseCurrency := &Currency{}
 	convertCurrency := &Currency{}
 	err := GetDB().Table("currencies").Where("id = ?", currencyConvert.BaseCurrencyId).First(baseCurrency).Error

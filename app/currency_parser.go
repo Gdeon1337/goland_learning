@@ -8,7 +8,7 @@ import (
 	"net/http"
 )
 
-func CurrencyParser()  {
+func CurrencyParser() {
 	currencies := make([]models.Currency, 4)
 
 	models.GetDB().Find(&currencies)

@@ -15,12 +15,12 @@ type Token struct {
 
 type User struct {
 	gorm.Model
-	Login string `json:"login"`
+	Login    string `json:"login"`
 	Password string `json:"password"`
-	Token string `json:"token";sql:"-"`
+	Token    string `json:"token";gorm:"-"`
 }
 
-func (user *User) Validate() (map[string] interface{}, bool) {
+func (user *User) Validate() (map[string]interface{}, bool) {
 
 	if len(user.Password) < 6 {
 		return u.Message(false, "Password is required"), false
@@ -39,8 +39,7 @@ func (user *User) Validate() (map[string] interface{}, bool) {
 	return u.Message(false, "Requirement passed"), true
 }
 
-
-func (user *User) Create() map[string] interface{} {
+func (user *User) Create() map[string]interface{} {
 
 	if resp, ok := user.Validate(); !ok {
 		return resp
@@ -67,8 +66,7 @@ func (user *User) Create() map[string] interface{} {
 	return response
 }
 
-
-func Login(login, password string) (map[string]interface{}) {
+func Login(login, password string) map[string]interface{} {
 
 	user := &User{}
 	err := GetDB().Table("users").Where("login = ?", login).First(user).Error
