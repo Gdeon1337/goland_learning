@@ -29,19 +29,17 @@ var JwtAuthentication = func(next http.Handler) http.Handler {
 
 		response := make(map[string] interface{})
 		tokenHeader := r.Header.Get("Authorization")
-		var tokenCookie *http.Cookie
-		if tokenHeader == "" {
-			tokenCookie, _ = r.Cookie("Authorization")
-		}
-		if tokenCookie == nil {
+		tokenCookie, _ := r.Cookie("Authorization")
+		if tokenCookie == nil && tokenHeader == "" {
 			response = u.Message(false, "Missing auth token")
 			w.WriteHeader(http.StatusForbidden)
 			w.Header().Add("Content-Type", "application/json")
 			u.Respond(w, response, 403)
 			return
 		}
-		tokenHeader = tokenCookie.Value
-
+		if tokenHeader == "" && tokenCookie != nil {
+			tokenHeader = tokenCookie.Value
+		}
 		splitted := strings.Split(tokenHeader, " ")
 		if len(splitted) != 2 {
 			response = u.Message(false, "Invalid/Malformed auth token")
