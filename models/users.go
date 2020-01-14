@@ -18,6 +18,7 @@ type User struct {
 	Login    string `json:"login"`
 	Password string `json:"password"`
 	Token    string `json:"token";gorm:"-"`
+	Role     string `json:"role"`
 }
 
 func (user *User) Validate() (map[string]interface{}, bool) {
@@ -38,6 +39,20 @@ func (user *User) Validate() (map[string]interface{}, bool) {
 
 	return u.Message(false, "Requirement passed"), true
 }
+
+
+func GetUser (UserId int) (*User, bool) {
+	temp := &User{}
+	err := GetDB().Table("users").Where("id = ?", UserId).First(temp).Error
+	if err != nil {
+		if err == gorm.ErrRecordNotFound {
+			return temp , false
+		}
+		return temp, false
+	}
+	return temp, true
+}
+
 
 func (user *User) Create() map[string]interface{} {
 

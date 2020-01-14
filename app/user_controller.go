@@ -16,7 +16,8 @@ var JwtAuthentication = func(next http.Handler) http.Handler {
 
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		log.Print("Check Auth Token")
-		notAuth := []string{"/api/user/new", "/api/user/login"}
+		notAuth := []string{"/api/user/login"}
+		checkAdmin := []string{"/api/user", "/admin"}
 		requestPath := r.URL.Path
 
 		for _, value := range notAuth {
@@ -71,7 +72,25 @@ var JwtAuthentication = func(next http.Handler) http.Handler {
 			u.Respond(w, response, 403)
 			return
 		}
+		user, ok := models.GetUser(int(tk.UserId))
+		if !ok {
+			response = u.Message(false, "User is not active.")
+			w.Header().Add("Content-Type", "application/json")
+			u.Respond(w, response, http.StatusForbidden)
+			return
+		}
+
+		for _, value := range checkAdmin {
+			if strings.Contains(requestPath, value) && strings.ToLower(user.Role) != "admin" {
+				response = u.Message(false, "Permission denied.")
+				w.Header().Add("Content-Type", "application/json")
+				u.Respond(w, response, http.StatusForbidden)
+				return
+			}
+		}
+
 		ctx := context.WithValue(r.Context(), "user", tk.UserId)
+
 		r = r.WithContext(ctx)
 		next.ServeHTTP(w, r)
 	})
@@ -104,5 +123,4 @@ var Authenticate = func(w http.ResponseWriter, r *http.Request) {
 	resp := models.Login(user.Login, user.Password)
 	u.Respond(w, resp, 200)
 }
-
 
