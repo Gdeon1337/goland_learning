@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ef8c6ce9-ce05-4658-9799-79ef5c786458" name="Default Changelist" comment="">
+    <list default="true" id="ef8c6ce9-ce05-4658-9799-79ef5c786458" name="Default Changelist" comment="ref">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/currency_parser.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/currency_parser.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/currencies.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/currencies.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/users.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/users.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/currency_controller.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/currency_controller.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/user_controller.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/user_controller.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/database.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/database.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,12 +122,28 @@
       <option name="presentableId" value="Default" />
       <updated>1576826430903</updated>
     </task>
+    <task id="LOCAL-00001" summary="ref">
+      <created>1578921724878</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1578921724878</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="ref" />
+    <option name="LAST_COMMIT_MESSAGE" value="ref" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="588" y="215" width="800" height="684" key="#GOROOT" timestamp="1578922774063">
+      <screen x="67" y="28" width="1853" height="1052" />
+    </state>
+    <state x="588" y="215" width="800" height="684" key="#GOROOT/67.28.1853.1052@67.28.1853.1052" timestamp="1578922774063" />
     <state x="451" y="211" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1577278973744">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -143,50 +160,54 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="776" y="311" width="424" height="491" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1577272367310" />
-    <state width="1801" height="263" key="GridCell.Tab.0.bottom" timestamp="1578921701470">
+    <state width="1801" height="260" key="GridCell.Tab.0.bottom" timestamp="1578994525048">
       <screen x="67" y="28" width="1853" height="1052" />
     </state>
     <state width="1807" height="275" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1577192445429" />
-    <state width="1801" height="263" key="GridCell.Tab.0.bottom/67.28.1853.1052@67.28.1853.1052" timestamp="1578921701470" />
-    <state width="1801" height="263" key="GridCell.Tab.0.center" timestamp="1578921701469">
+    <state width="1801" height="260" key="GridCell.Tab.0.bottom/67.28.1853.1052@67.28.1853.1052" timestamp="1578994525048" />
+    <state width="1801" height="260" key="GridCell.Tab.0.center" timestamp="1578994525048">
       <screen x="67" y="28" width="1853" height="1052" />
     </state>
     <state width="1807" height="275" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1577192445428" />
-    <state width="1801" height="263" key="GridCell.Tab.0.center/67.28.1853.1052@67.28.1853.1052" timestamp="1578921701469" />
-    <state width="1801" height="263" key="GridCell.Tab.0.left" timestamp="1578921701469">
+    <state width="1801" height="260" key="GridCell.Tab.0.center/67.28.1853.1052@67.28.1853.1052" timestamp="1578994525048" />
+    <state width="1801" height="260" key="GridCell.Tab.0.left" timestamp="1578994525047">
       <screen x="67" y="28" width="1853" height="1052" />
     </state>
     <state width="1807" height="275" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1577192445427" />
-    <state width="1801" height="263" key="GridCell.Tab.0.left/67.28.1853.1052@67.28.1853.1052" timestamp="1578921701469" />
-    <state width="1801" height="263" key="GridCell.Tab.0.right" timestamp="1578921701470">
+    <state width="1801" height="260" key="GridCell.Tab.0.left/67.28.1853.1052@67.28.1853.1052" timestamp="1578994525047" />
+    <state width="1801" height="260" key="GridCell.Tab.0.right" timestamp="1578994525048">
       <screen x="67" y="28" width="1853" height="1052" />
     </state>
     <state width="1807" height="275" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1577192445428" />
-    <state width="1801" height="263" key="GridCell.Tab.0.right/67.28.1853.1052@67.28.1853.1052" timestamp="1578921701470" />
-    <state width="1801" height="337" key="GridCell.Tab.1.bottom" timestamp="1578904929030">
+    <state width="1801" height="260" key="GridCell.Tab.0.right/67.28.1853.1052@67.28.1853.1052" timestamp="1578994525048" />
+    <state width="1801" height="335" key="GridCell.Tab.1.bottom" timestamp="1578993897424">
       <screen x="67" y="28" width="1853" height="1052" />
     </state>
     <state width="1807" height="340" key="GridCell.Tab.1.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1577187030295" />
-    <state width="1801" height="337" key="GridCell.Tab.1.bottom/67.28.1853.1052@67.28.1853.1052" timestamp="1578904929030" />
-    <state width="1801" height="337" key="GridCell.Tab.1.center" timestamp="1578904929028">
+    <state width="1801" height="335" key="GridCell.Tab.1.bottom/67.28.1853.1052@67.28.1853.1052" timestamp="1578993897424" />
+    <state width="1801" height="335" key="GridCell.Tab.1.center" timestamp="1578993897423">
       <screen x="67" y="28" width="1853" height="1052" />
     </state>
     <state width="1807" height="340" key="GridCell.Tab.1.center/67.27.1853.1053@67.27.1853.1053" timestamp="1577187030294" />
-    <state width="1801" height="337" key="GridCell.Tab.1.center/67.28.1853.1052@67.28.1853.1052" timestamp="1578904929028" />
-    <state width="1801" height="337" key="GridCell.Tab.1.left" timestamp="1578904929027">
+    <state width="1801" height="335" key="GridCell.Tab.1.center/67.28.1853.1052@67.28.1853.1052" timestamp="1578993897423" />
+    <state width="1801" height="335" key="GridCell.Tab.1.left" timestamp="1578993897423">
       <screen x="67" y="28" width="1853" height="1052" />
     </state>
     <state width="1807" height="340" key="GridCell.Tab.1.left/67.27.1853.1053@67.27.1853.1053" timestamp="1577187030294" />
-    <state width="1801" height="337" key="GridCell.Tab.1.left/67.28.1853.1052@67.28.1853.1052" timestamp="1578904929027" />
-    <state width="1801" height="337" key="GridCell.Tab.1.right" timestamp="1578904929029">
+    <state width="1801" height="335" key="GridCell.Tab.1.left/67.28.1853.1052@67.28.1853.1052" timestamp="1578993897423" />
+    <state width="1801" height="335" key="GridCell.Tab.1.right" timestamp="1578993897424">
       <screen x="67" y="28" width="1853" height="1052" />
     </state>
     <state width="1807" height="340" key="GridCell.Tab.1.right/67.27.1853.1053@67.27.1853.1053" timestamp="1577187030295" />
-    <state width="1801" height="337" key="GridCell.Tab.1.right/67.28.1853.1052@67.28.1853.1052" timestamp="1578904929029" />
+    <state width="1801" height="335" key="GridCell.Tab.1.right/67.28.1853.1052@67.28.1853.1052" timestamp="1578993897424" />
     <state x="482" y="188" width="1022" height="737" key="SettingsEditor" timestamp="1577279023966">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="482" y="188" width="1022" height="737" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1577279023966" />
+    <state width="926" height="526" key="XDebugger.FullValuePopup" timestamp="1578993548639">
+      <screen x="67" y="28" width="1853" height="1052" />
+    </state>
+    <state width="926" height="526" key="XDebugger.FullValuePopup/67.28.1853.1052@67.28.1853.1052" timestamp="1578993548639" />
     <state x="738" y="166" width="500" height="783" key="refactoring.ChangeSignatureDialog" timestamp="1577451196709">
       <screen x="67" y="28" width="1853" height="1052" />
     </state>
@@ -200,8 +221,7 @@
   <component name="XDebuggerManager">
     <watches-manager>
       <configuration name="GoApplicationRunConfiguration">
-        <watch expression="int(currency.ID)" language="go" />
-        <watch expression="GetDB().Table(&quot;currencies&quot;).Where(&quot;id = ?&quot;, 1).First(temp).Error" language="go" />
+        <watch expression="r.Cookie(&quot;Authorization&quot;)" language="go" />
       </configuration>
     </watches-manager>
   </component>

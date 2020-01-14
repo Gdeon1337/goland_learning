@@ -5,10 +5,12 @@ import (
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/postgres"
 	"github.com/joho/godotenv"
+	"github.com/qor/admin"
 	//"os"
 )
 
 var db *gorm.DB
+var Admin *admin.Admin
 
 func init() {
 
@@ -35,6 +37,9 @@ func init() {
 
 	db = conn
 	db.Debug().AutoMigrate(&User{}, &Currency{})
+	Admin = admin.New(&admin.AdminConfig{DB: db})
+	Admin.AddResource(&User{})
+	Admin.AddResource(&Currency{})
 }
 
 func GetDB() *gorm.DB {

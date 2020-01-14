@@ -2,6 +2,7 @@ package main
 
 import (
 	"./app"
+	"./models"
 	"fmt"
 	"github.com/gorilla/mux"
 	"log"
@@ -15,6 +16,7 @@ func task() {
 	for range timerCh {
 		log.Print("Start task - update currencies")
 		app.CurrencyParser()
+		log.Print("Task - update currencies, Finished")
 	}
 }
 
@@ -40,6 +42,10 @@ func main() {
 	router.HandleFunc("/api/currency",
 		app.GetCurrencies).Methods("GET")
 
+	adminMux := http.NewServeMux()
+	models.Admin.MountTo("/admin", adminMux)
+
+	router.PathPrefix("/admin").Handler(adminMux)
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "8000"

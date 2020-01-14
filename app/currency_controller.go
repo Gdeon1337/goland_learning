@@ -4,11 +4,13 @@ import (
 	"../models"
 	u "../utils"
 	"encoding/json"
+	"log"
 	"net/http"
 	"strconv"
 )
 
 var CreateCurrencies = func(w http.ResponseWriter, r *http.Request) {
+	log.Print("Create currency")
 	currency := &models.Currency{}
 	err := json.NewDecoder(r.Body).Decode(currency)
 	if err != nil {
@@ -16,10 +18,12 @@ var CreateCurrencies = func(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	resp := currency.Create()
+	log.Print("Currency has been created")
 	u.Respond(w, resp, 200)
 }
 
 var GetCurrencies = func(w http.ResponseWriter, r *http.Request) {
+	log.Print("Get all Currencies")
 	rawLimit := r.URL.Query().Get("limit")
 	rawOffset := r.URL.Query().Get("offset")
 	limit := 1
@@ -46,6 +50,7 @@ var GetCurrencies = func(w http.ResponseWriter, r *http.Request) {
 
 
 var UpdateCurrencies = func(w http.ResponseWriter, r *http.Request) {
+	log.Print("Update currency")
 	currency := &models.Currency{}
 	err := json.NewDecoder(r.Body).Decode(currency)
 	if err != nil {
@@ -53,10 +58,12 @@ var UpdateCurrencies = func(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	resp := currency.Update()
+	log.Print("Currency has been updated")
 	u.Respond(w, resp, 200)
 }
 
 var DeleteCurrencies = func(w http.ResponseWriter, r *http.Request) {
+	log.Print("Delete currency")
 	rawCurrencyId := r.URL.Query().Get("currency_id")
 	currency := &models.Currency{}
 	if rawCurrencyId == "" {
@@ -71,10 +78,12 @@ var DeleteCurrencies = func(w http.ResponseWriter, r *http.Request) {
 		currency.ID = uint(i64)
 	}
 	resp := currency.Delete()
+	log.Print("Currency has been deleted")
 	u.Respond(w, resp, 200)
 }
 
 var ConvertCurrency = func(w http.ResponseWriter, r *http.Request) {
+	log.Print("Convert currencies")
 	convertCurrency := &models.CurrencyConvert{}
 	rawCurrencyConvert := r.URL.Query().Get("convert_currency_id")
 	rawCurrencyBase := r.URL.Query().Get("base_currency_id")
@@ -95,7 +104,7 @@ var ConvertCurrency = func(w http.ResponseWriter, r *http.Request) {
 	if rawCount == "" {
 		convertCurrency.Count = 1
 	}else{
-		i64, err := strconv.ParseInt(rawCount, 10, 32)
+		i64, err := strconv.ParseFloat(rawCount, 32)
 		if err != nil {
 			u.Respond(w, u.Message(false, "Invalid request"), 415)
 			return
@@ -103,5 +112,6 @@ var ConvertCurrency = func(w http.ResponseWriter, r *http.Request) {
 		convertCurrency.Count = float32(i64)
 	}
 	resp := convertCurrency.Convert()
+	log.Print("Currency has been converted")
 	u.Respond(w, resp, 200)
 }
