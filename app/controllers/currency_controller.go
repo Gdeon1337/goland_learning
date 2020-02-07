@@ -1,8 +1,8 @@
-package app
+package controllers
 
 import (
-	"../models"
-	u "../utils"
+	"../../models"
+	u "../../utils"
 	"encoding/json"
 	"log"
 	"net/http"
@@ -17,9 +17,14 @@ var CreateCurrencies = func(w http.ResponseWriter, r *http.Request) {
 		u.Respond(w, u.Message(false, "Invalid request"), 415)
 		return
 	}
-	resp := currency.Create()
-	log.Print("Currency has been created")
-	u.Respond(w, resp, 200)
+	if resp, ok := currency.Validate(); !ok {
+		u.Respond(w, resp, 415)
+	}else {
+		response := u.Message(true, "get all currencies")
+		response["currencies"] = currency.Create()
+		log.Print("Currency has been created")
+		u.Respond(w, response, 200)
+	}
 }
 
 var GetCurrencies = func(w http.ResponseWriter, r *http.Request) {
@@ -44,8 +49,9 @@ var GetCurrencies = func(w http.ResponseWriter, r *http.Request) {
 		}
 		offset = int(rawOffset)
 	}
-	resp := models.GetAllCurrencies(limit, offset)
-	u.Respond(w, resp, 200)
+	response := u.Message(true, "get all currencies")
+	response["currencies"] = models.GetAllCurrencies(limit, offset)
+	u.Respond(w, response, 200)
 }
 
 
@@ -57,9 +63,10 @@ var UpdateCurrencies = func(w http.ResponseWriter, r *http.Request) {
 		u.Respond(w, u.Message(false, "Invalid request"), 415)
 		return
 	}
-	resp := currency.Update()
+	response := u.Message(true, "currencies has been created")
+	response["currency"] = currency.Update()
 	log.Print("Currency has been updated")
-	u.Respond(w, resp, 200)
+	u.Respond(w, response, 200)
 }
 
 var DeleteCurrencies = func(w http.ResponseWriter, r *http.Request) {
@@ -77,9 +84,10 @@ var DeleteCurrencies = func(w http.ResponseWriter, r *http.Request) {
 		}
 		currency.ID = uint(i64)
 	}
-	resp := currency.Delete()
+	response := u.Message(true, "currencies has been deleted")
+	response["currency"] = currency.Delete()
 	log.Print("Currency has been deleted")
-	u.Respond(w, resp, 200)
+	u.Respond(w, response, 200)
 }
 
 var ConvertCurrency = func(w http.ResponseWriter, r *http.Request) {

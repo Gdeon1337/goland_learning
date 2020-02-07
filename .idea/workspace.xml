@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef8c6ce9-ce05-4658-9799-79ef5c786458" name="Default Changelist" comment="ref">
+      <change afterPath="$PROJECT_DIR$/app/middlware/auth_middlware.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/service.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/user_controller.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/user_controller.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/currency_controller.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/currency_controller.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/user_controller.go" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/user_controller.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature-trainer-version.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/currencies.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/currencies.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/users.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/users.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,6 +68,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/models" />
+      <recent name="$PROJECT_DIR$/app/controllers" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/app" />
     </key>

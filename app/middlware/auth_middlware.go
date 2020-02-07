@@ -1,10 +1,9 @@
-package app
+package middlware
 
 import (
-	"../models"
-	u "../utils"
+	"../../models"
+	u "../../utils"
 	"context"
-	"encoding/json"
 	jwt "github.com/dgrijalva/jwt-go"
 	"log"
 	"net/http"
@@ -95,32 +94,3 @@ var JwtAuthentication = func(next http.Handler) http.Handler {
 		next.ServeHTTP(w, r)
 	})
 }
-
-
-var CreateUser = func(w http.ResponseWriter, r *http.Request) {
-	log.Print("CreateUser")
-	user := &models.User{}
-	err := json.NewDecoder(r.Body).Decode(user)
-	if err != nil {
-		u.Respond(w, u.Message(false, "Invalid request"), 415)
-		return
-	}
-
-	resp := user.Create()
-	log.Print("User user has been created")
-	u.Respond(w, resp, 200)
-}
-
-
-var Authenticate = func(w http.ResponseWriter, r *http.Request) {
-	log.Print("Auth user")
-	user := &models.User{}
-	err := json.NewDecoder(r.Body).Decode(user)
-	if err != nil {
-		u.Respond(w, u.Message(false, "Invalid request"), 415)
-		return
-	}
-	resp := models.Login(user.Login, user.Password)
-	u.Respond(w, resp, 200)
-}
-
