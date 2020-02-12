@@ -23,7 +23,7 @@ var CreateUser = func(w http.ResponseWriter, r *http.Request) {
 	response := u.Message(true, "user has been created")
 	response["user"] = user.Create()
 	log.Print("User user has been created")
-	u.Respond(w, resp, 200)
+	u.Respond(w, response, 200)
 }
 
 

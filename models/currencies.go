@@ -36,14 +36,14 @@ func GetAllCurrencies(limit, offset int) []Currency {
 
 func (currency *Currency) Update() *Currency {
 	temp := &Currency{}
-	GetDB().Table("currencies").Where("name = ?", currency.Name).First(temp).Error
+	GetDB().Table("currencies").Where("name = ?", currency.Name).First(temp)
 	GetDB().Model(&temp).Update(currency)
 	return temp
 }
 
 func (currency *Currency) Delete() *Currency {
 	temp := &Currency{}
-	GetDB().Table("currencies").Where("id = ?", int(currency.ID)).First(temp).Error
+	GetDB().Table("currencies").Where("id = ?", int(currency.ID)).First(temp)
 	GetDB().Delete(&temp)
 	return temp
 }
