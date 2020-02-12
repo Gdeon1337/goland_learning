@@ -23,69 +23,29 @@ type CurrencyConvertResponse struct {
 	ConvertCurrency Currency `json:"convert_currency"`
 }
 
-func (currency *Currency) Validate() (map[string]interface{}, bool) {
-
-	temp := &Currency{}
-
-	err := GetDB().Table("currencies").Where("name = ?", currency.Name).First(temp).Error
-	if err != nil && err != gorm.ErrRecordNotFound {
-		return u.Message(false, "Connection error. Please retry"), false
-	}
-	if temp.Name != "" {
-		return u.Message(false, "Name address already in use."), false
-	}
-
-	return u.Message(false, "Requirement passed"), true
-}
-
-func (currency *Currency) Create() map[string]interface{} {
-
-	if resp, ok := currency.Validate(); !ok {
-		return resp
-	}
-
+func (currency *Currency) Create() *Currency {
 	GetDB().Create(currency)
-	response := u.Message(true, "currencies has been created")
-	response["currency"] = currency
-	return response
+	return currency
 }
 
-func GetAllCurrencies(limit, offset int) map[string]interface{} {
+func GetAllCurrencies(limit, offset int) []Currency {
 	currencies := make([]Currency, 4)
 	GetDB().Limit(limit).Limit(offset).Find(&currencies)
-	response := u.Message(true, "get all currencies")
-	response["currencies"] = currencies
-	return response
+	return currencies
 }
 
-func (currency *Currency) Update() map[string]interface{} {
+func (currency *Currency) Update() *Currency {
 	temp := &Currency{}
-	err := GetDB().Table("currencies").Where("name = ?", currency.Name).First(temp).Error
-	if err != nil {
-		if err == gorm.ErrRecordNotFound {
-			return u.Message(false, "Currency not found")
-		}
-		return u.Message(false, "Connection error. Please retry")
-	}
+	GetDB().Table("currencies").Where("name = ?", currency.Name).First(temp)
 	GetDB().Model(&temp).Update(currency)
-	response := u.Message(true, "currencies has been created")
-	response["currency"] = temp
-	return response
+	return temp
 }
 
-func (currency *Currency) Delete() map[string]interface{} {
+func (currency *Currency) Delete() *Currency {
 	temp := &Currency{}
-	err := GetDB().Table("currencies").Where("id = ?", int(currency.ID)).First(temp).Error
-	if err != nil {
-		if err == gorm.ErrRecordNotFound {
-			return u.Message(false, "Currency not found")
-		}
-		return u.Message(false, "Connection error. Please retry")
-	}
+	GetDB().Table("currencies").Where("id = ?", int(currency.ID)).First(temp)
 	GetDB().Delete(&temp)
-	response := u.Message(true, "currencies has been deleted")
-	response["currency"] = temp
-	return response
+	return temp
 }
 
 func (currencyConvert *CurrencyConvert) Convert() map[string]interface{} {
